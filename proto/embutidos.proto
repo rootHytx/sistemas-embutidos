@@ -1,0 +1,32 @@
+syntax = "proto3";
+package embutidos;
+
+message Metadata{
+    bytes source_id = 1;
+    string time = 2;
+}
+message Signature{
+    bytes hash = 1;
+    bytes pkey = 2;
+}
+
+message RaspberryListenerRequest{
+    string request = 2;
+}
+message RaspberryListenerResponse{
+    string response = 2;
+}
+message DropletListenerRequest{
+    string request = 2;
+}
+message DropletListenerResponse{
+    string response = 2;
+}
+
+service Raspberry{
+    rpc RaspberryListener(RaspberryListenerRequest) returns (RaspberryListenerResponse);
+}
+
+service Droplet{
+    rpc DropletListener(DropletListenerRequest) returns (DropletListenerResponse);
+}
