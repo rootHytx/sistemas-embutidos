@@ -1,0 +1,30 @@
+[package]
+name = "SISTEMAS-EMBUTIDOS"
+version = "0.1.0"
+edition = "2021"
+build="build.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tonic = "0.11.0"
+tokio = { version = "1.37.0", features = ["rt", "rt-multi-thread", "macros", "signal"] }
+prost = "0.12.4"
+sha256 = "1.5.0"
+digest = "0.11.0-pre.8"
+hex = "0.4.3"
+tokio-util = "0.7.10"
+tokio-serial = "5.4.4"
+local-ip-address = "0.6.1"
+chrono = "0.4.38"
+
+[build-dependencies]
+tonic-build = "0.11.0"
+
+[[bin]]
+name="raspberry"
+path = "src/raspberry_server.rs"
+
+[[bin]]
+name="droplet"
+path = "src/droplet_server.rs"
